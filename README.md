@@ -38,12 +38,12 @@ Para executar este projeto, basta seguir os seguintes passos:
 
 4- No arquivo application.properties que fica na pasta resources do projeto substituir a configuração do Postgres para o H2 com a seguinte configuração:
 
-spring.application.name=gerenciamento
-spring.datasource.url=jdbc:h2:mem:gerenciamento
-spring.jpa.generate-dll=true
-spring.jpa.hibernate.dll-auto=update
-spring.h2.console.enabled=true
-spring.jpa.show-sql=true
+spring.application.name=gerenciamento <br>
+spring.datasource.url=jdbc:h2:mem:gerenciamento <br>
+spring.jpa.generate-dll=true <br>
+spring.jpa.hibernate.dll-auto=update <br>
+spring.h2.console.enabled=true <br>
+spring.jpa.show-sql=true <br>
 
 5- Após configurar o banco de dados deve-se executaar o projeto e utilizar o Postman ou Insomnia para realizar as requisições HTTP conforme os exemplos abaixo:
 
