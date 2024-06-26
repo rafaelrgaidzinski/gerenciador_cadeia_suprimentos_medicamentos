@@ -7,10 +7,7 @@ import jakarta.validation.constraints.NotNull;
 public record ServicosDto( @NotBlank(message = "É obrigatório informar o nome do serviço")
                            String nome,
 
-                          String descricao,
-
-                          @NotNull(message = "É obrigatório informar o valor do serviço")
-                          @Min(value = 1, message = "O valor deve ser maior do que zero")
-                          Double valor
+                          @NotBlank(message = "É obrigatório informar a descrição do serviço")
+                          String descricao
 ) {
 }

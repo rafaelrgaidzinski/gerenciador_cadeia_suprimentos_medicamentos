@@ -2,7 +2,9 @@ package com.example.gerenciador_cadeia_suprimento_medicamentos.mappers;
 
 import com.example.gerenciador_cadeia_suprimento_medicamentos.dtos.EnderecoDto;
 import com.example.gerenciador_cadeia_suprimento_medicamentos.models.EnderecoModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EnderecoMapper {
 
     public EnderecoDto toEnderecoDto (EnderecoModel enderecoModel) {

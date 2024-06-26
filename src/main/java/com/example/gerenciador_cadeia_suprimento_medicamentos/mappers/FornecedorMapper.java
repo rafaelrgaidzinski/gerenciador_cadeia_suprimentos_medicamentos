@@ -3,15 +3,17 @@ package com.example.gerenciador_cadeia_suprimento_medicamentos.mappers;
 import com.example.gerenciador_cadeia_suprimento_medicamentos.dtos.FornecedorDto.FornecedorRequestDto;
 import com.example.gerenciador_cadeia_suprimento_medicamentos.dtos.FornecedorDto.FornecedorResponseDto;
 import com.example.gerenciador_cadeia_suprimento_medicamentos.models.FornecedorModel;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FornecedorMapper {
 
     public FornecedorRequestDto toFornecedorRequestDto (FornecedorModel fornecedorModel) {
         return new FornecedorRequestDto(
                 fornecedorModel.getNome(),
                 fornecedorModel.getCnpj(),
-                fornecedorModel.getEnderecoId(),
-                fornecedorModel.getTelefone()
+                fornecedorModel.getTelefone(),
+                fornecedorModel.getEnderecoId()
         );
     }
 
@@ -28,8 +30,8 @@ public class FornecedorMapper {
                 null,
                 fornecedorRequestDto.nome(),
                 fornecedorRequestDto.cnpj(),
-                fornecedorRequestDto.enderecoId(),
-                fornecedorRequestDto.telefone()
+                fornecedorRequestDto.telefone(),
+                fornecedorRequestDto.enderecoId()
         );
     }
 

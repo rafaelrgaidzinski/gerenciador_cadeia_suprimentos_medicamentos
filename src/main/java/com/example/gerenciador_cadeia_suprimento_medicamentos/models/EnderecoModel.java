@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="endereco")
+@Table(name="enderecos")
 public class EnderecoModel {
 
     @Id

@@ -4,12 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record FornecedorResponseDto(@NotBlank(message = "É obrigatório informar o nome do fornecedor")
-                            String nome,
+                                    String nome,
 
                                     @NotBlank(message = "É obrigatório informar o cnpj do fornecedor")
-                            String cnpj,
+                                    String cnpj,
 
                                     @NotBlank(message = "É obrigatório informar o telefone do fornecedor")
-                            String telefone
+                                    String telefone
 ) {
 }

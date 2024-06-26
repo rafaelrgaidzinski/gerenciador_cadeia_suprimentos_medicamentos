@@ -23,7 +23,4 @@ public class ServicosModel {
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "valor_servico")
-    private Double valor;
-
 }

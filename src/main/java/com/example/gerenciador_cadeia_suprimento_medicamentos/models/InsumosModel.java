@@ -20,17 +20,11 @@ public class InsumosModel {
     @Column(name="nome_insumo")
     private String nome;
 
-    @Column(name="codigo_barra")
-    private String codigoBarra;
-
     @Column(name="descricao")
     private String descricao;
 
     @Column(name="unidade")
     private String unidade;
-
-    @Column(name="quantidade_inicial")
-    private Double quantidadeInicial;
 
     @Column(name="quantidade_atual")
     private Double quantidadeAtual;

@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="fornecedor")
+@Table(name="fornecedores")
 public class FornecedorModel {
 
     @Id
@@ -23,10 +23,10 @@ public class FornecedorModel {
     @Column(name="cnpj_fornecedor")
     private String cnpj;
 
-    @Column(name="endereco_id")
-    private Long enderecoId;
-
     @Column(name="telefone")
     private String telefone;
+
+    @Column(name="endereco_id")
+    private Long enderecoId;
 
 }
