@@ -48,10 +48,125 @@ spring.jpa.show-sql=true
 5- Após configurar o banco de dados deve-se executaar o projeto e utilizar o Postman ou Insomnia para realizar as requisições HTTP conforme os exemplos abaixo:
 
 
-# GET
+## GET
 
-# POST
+Para realizar este tipo de requisiçao deve-se selecionar o método GET e informar uma das seguintes URL que irá retornar as informações de forma 
+paginada com 5 itens por página, caso não seja informado nenhum parametro:
 
-# PUT
+- http://localhost:8080/fornecedores
+- http://localhost:8080/insumos
+- http://localhost:8080/servicos
 
-# DELETE
+É possível também informar os seguintes parametros para customizar a paginação:
+
+http://localhost:8080/servicos?&pagina=1&resultados=3
+
+## POST
+
+Para persistir uma informação no banco de dados através da API deve-se realizar a seguinte configuração utilizando o método POST:
+
+
+### Fornecedores
+
+#### URL
+http://localhost:8080/fornecedores
+
+##### Headers
+Content-Type = application/json
+
+#### Body
+{
+  "nome": "Fornecedor A",
+  "cnpj": "12345678000100",
+  "telefone": "(11) 1234-5678",
+  "enderecoId": 1
+}
+
+### Insumos
+
+#### URL
+http://localhost:8080/insumos
+
+##### Headers
+Content-Type = application/json
+
+#### Body
+{
+  "nome": "Farinha de Trigo",
+  "descricao": "Farinha para uso culinário",
+  "unidade": "kg",
+  "quantidadeAtual": 25.5
+}
+
+### Servicos
+
+#### URL
+http://localhost:8080/servicos
+
+##### Headers
+Content-Type = application/json
+
+#### Body
+{
+  "nome": "Validação de Processos",
+  "descricao": "Serviço de validação de processos farmacêuticos conforme regulamentação vigente."
+}
+
+## PUT
+
+Para Atualizar uma informação no banco de dados através da API deve-se realizar a seguinte configuração utilizando o método PUT:
+
+### Fornecedores
+
+#### URL
+http://localhost:8080/fornecedores/{id}
+
+##### Headers
+Content-Type = application/json
+
+#### Body
+{
+  "nome": "Fornecedor Z",
+  "cnpj": "12345678000100",
+  "telefone": "(11) 1234-5678",
+  "enderecoId": 3
+}
+
+### Insumos
+
+#### URL
+http://localhost:8080/insumos/{id}
+
+##### Headers
+Content-Type = application/json
+
+#### Body
+{
+  "nome": "Trigo",
+  "descricao": "Trigo para uso culinário",
+  "unidade": "kg",
+  "quantidadeAtual": 20.0
+}
+
+### Servicos
+
+#### URL
+http://localhost:8080/servicos/{id}
+
+##### Headers
+Content-Type = application/json
+
+#### Body
+{
+  "nome": "Validação ",
+  "descricao": "Serviço de processos farmacêuticos conforme regulamentação vigente."
+}
+
+## DELETE
+
+Para excluir informações do banco de dados deve-se realizar utilizar o método DELETE utilizando uma das seguintes URLs 
+e informar o ID da informação que deseja excluir como parametro:
+
+- http://localhost:8080/fornecedores/{id}
+- http://localhost:8080/insumos/{id}
+- http://localhost:8080/servicos/{id}
