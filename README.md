@@ -38,12 +38,12 @@ Para executar este projeto, basta seguir os seguintes passos:
 
 4- No arquivo application.properties que fica na pasta resources do projeto substituir a configuração do Postgres para o H2 com a seguinte configuração:
 
-spring.application.name=gerenciamento
-spring.datasource.url=jdbc:h2:mem:gerenciamento
-spring.jpa.generate-dll=true
-spring.jpa.hibernate.dll-auto=update
-spring.h2.console.enabled=true
-spring.jpa.show-sql=true
+spring.application.name=gerenciamento <br>
+spring.datasource.url=jdbc:h2:mem:gerenciamento <br>
+spring.jpa.generate-dll=true <br>
+spring.jpa.hibernate.dll-auto=update <br>
+spring.h2.console.enabled=true <br>
+spring.jpa.show-sql=true <br>
 
 5- Após configurar o banco de dados deve-se executaar o projeto e utilizar o Postman ou Insomnia para realizar as requisições HTTP conforme os exemplos abaixo:
 
@@ -75,13 +75,14 @@ http://localhost:8080/fornecedores
 Content-Type = application/json
 
 #### Body
+```
 {
-  "nome": "Fornecedor A",
+  "nome": "Fornecedor A", 
   "cnpj": "12345678000100",
   "telefone": "(11) 1234-5678",
   "enderecoId": 1
 }
-
+```
 ### Insumos
 
 #### URL
@@ -91,12 +92,14 @@ http://localhost:8080/insumos
 Content-Type = application/json
 
 #### Body
+```
 {
   "nome": "Farinha de Trigo",
   "descricao": "Farinha para uso culinário",
   "unidade": "kg",
   "quantidadeAtual": 25.5
 }
+```
 
 ### Servicos
 
@@ -107,10 +110,12 @@ http://localhost:8080/servicos
 Content-Type = application/json
 
 #### Body
+```
 {
   "nome": "Validação de Processos",
   "descricao": "Serviço de validação de processos farmacêuticos conforme regulamentação vigente."
 }
+```
 
 ## PUT
 
@@ -125,12 +130,14 @@ http://localhost:8080/fornecedores/{id}
 Content-Type = application/json
 
 #### Body
+```
 {
   "nome": "Fornecedor Z",
   "cnpj": "12345678000100",
   "telefone": "(11) 1234-5678",
   "enderecoId": 3
 }
+```
 
 ### Insumos
 
@@ -141,12 +148,14 @@ http://localhost:8080/insumos/{id}
 Content-Type = application/json
 
 #### Body
+```
 {
   "nome": "Trigo",
   "descricao": "Trigo para uso culinário",
   "unidade": "kg",
   "quantidadeAtual": 20.0
 }
+```
 
 ### Servicos
 
@@ -157,10 +166,12 @@ http://localhost:8080/servicos/{id}
 Content-Type = application/json
 
 #### Body
+```
 {
   "nome": "Validação ",
   "descricao": "Serviço de processos farmacêuticos conforme regulamentação vigente."
 }
+```
 
 ## DELETE
 
