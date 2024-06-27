@@ -26,14 +26,12 @@ public class FornecedorService {
     FornecedorMapper fornecedorMapper;
 
     @Transactional
-    public FornecedorResponseDto save(FornecedorRequestDto fornecedorRequestDto) {
-        FornecedorModel fornecedorModel = fornecedorMapper.toEntity(fornecedorRequestDto);
+    public FornecedorResponseDto save(FornecedorModel fornecedorModel) {
         return fornecedorMapper.toFornecedorResponseDto(fornecedorRepository.save(fornecedorModel));
     }
 
     @Transactional
-    public void delete(FornecedorRequestDto fornecedorRequestDto) {
-        FornecedorModel fornecedorModel = fornecedorMapper.toEntity(fornecedorRequestDto);
+    public void delete(FornecedorModel fornecedorModel) {
         fornecedorRepository.delete(fornecedorModel);
     }
 

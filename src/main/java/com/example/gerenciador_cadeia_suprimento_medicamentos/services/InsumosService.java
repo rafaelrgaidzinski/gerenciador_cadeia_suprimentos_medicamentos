@@ -27,14 +27,12 @@ public class InsumosService {
     InsumosMapper insumosMapper;
 
     @Transactional
-    public InsumosDto save(InsumosDto insumosDto) {
-        InsumosModel insumosModel = insumosMapper.toEntity(insumosDto);
+    public InsumosDto save(InsumosModel insumosModel) {
         return insumosMapper.toInsumoDto(insumosRepository.save(insumosModel));
     }
 
     @Transactional
-    public void delete(InsumosDto insumosDto) {
-        InsumosModel insumosModel = insumosMapper.toEntity(insumosDto);
+    public void delete(InsumosModel insumosModel) {
         insumosRepository.delete(insumosModel);
     }
 

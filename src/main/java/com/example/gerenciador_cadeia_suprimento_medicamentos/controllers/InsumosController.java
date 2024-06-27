@@ -1,8 +1,11 @@
 package com.example.gerenciador_cadeia_suprimento_medicamentos.controllers;
 
 import com.example.gerenciador_cadeia_suprimento_medicamentos.dtos.InsumosDto;
+import com.example.gerenciador_cadeia_suprimento_medicamentos.models.FornecedorModel;
+import com.example.gerenciador_cadeia_suprimento_medicamentos.models.InsumosModel;
 import com.example.gerenciador_cadeia_suprimento_medicamentos.services.InsumosService;
 import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +23,9 @@ public class InsumosController {
 
     @PostMapping
     public ResponseEntity<InsumosDto> saveInsumo(@RequestBody @Valid InsumosDto insumosDto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(insumosService.save(insumosDto));
+        var insumoModel = new InsumosModel();
+        BeanUtils.copyProperties(insumosDto, insumoModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(insumosService.save(insumoModel));
     }
 
     @GetMapping
@@ -56,7 +61,10 @@ public class InsumosController {
         if (optionalInsumosDto.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Insumo não encontrado.");
         }
-        insumosService.delete(optionalInsumosDto.get());
+        var insumoModel = new InsumosModel();
+        BeanUtils.copyProperties(optionalInsumosDto, insumoModel);
+        insumoModel.setId(id);
+        insumosService.delete(insumoModel);
         return ResponseEntity.status(HttpStatus.OK).body("Insumo excluído com sucesso.");
     }
 
@@ -67,6 +75,9 @@ public class InsumosController {
         if (optionalInsumosDto.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Insumo não encontrado.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(insumosService.save(optionalInsumosDto.get()));
+        var insumoModel = new InsumosModel();
+        BeanUtils.copyProperties(insumosDto, insumoModel);
+        insumoModel.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(insumosService.save(insumoModel));
     }
 }

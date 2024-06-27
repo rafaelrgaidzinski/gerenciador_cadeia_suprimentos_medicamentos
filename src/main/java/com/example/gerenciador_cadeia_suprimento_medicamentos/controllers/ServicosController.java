@@ -1,6 +1,8 @@
 package com.example.gerenciador_cadeia_suprimento_medicamentos.controllers;
 
 import com.example.gerenciador_cadeia_suprimento_medicamentos.dtos.ServicosDto;
+import com.example.gerenciador_cadeia_suprimento_medicamentos.models.FornecedorModel;
+import com.example.gerenciador_cadeia_suprimento_medicamentos.models.ServicosModel;
 import com.example.gerenciador_cadeia_suprimento_medicamentos.services.ServicosService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;
@@ -21,7 +23,9 @@ public class ServicosController {
 
     @PostMapping
     public ResponseEntity<ServicosDto> saveServico(@RequestBody @Valid ServicosDto servicosDto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(servicosService.save(servicosDto));
+        var servicoModel = new ServicosModel();
+        BeanUtils.copyProperties(servicosDto, servicoModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(servicosService.save(servicoModel));
     }
 
     @GetMapping
@@ -57,7 +61,10 @@ public class ServicosController {
         if (optionalServicosDto.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Serviço não encontrado.");
         }
-        servicosService.delete(optionalServicosDto.get());
+        var servicoModel = new ServicosModel();
+        BeanUtils.copyProperties(optionalServicosDto, servicoModel);
+        servicoModel.setId(id);
+        servicosService.delete(servicoModel);
         return ResponseEntity.status(HttpStatus.OK).body("Serviço excluído com sucesso.");
     }
 
@@ -68,7 +75,9 @@ public class ServicosController {
         if (optionalInsumosDto.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Serviço não encontrado.");
         }
-
-        return ResponseEntity.status(HttpStatus.OK).body(servicosService.save(optionalInsumosDto.get()));
+        var servicoModel = new ServicosModel();
+        BeanUtils.copyProperties(servicosDto, servicoModel);
+        servicoModel.setId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(servicosService.save(servicoModel));
     }
 }
